@@ -6,6 +6,7 @@ import {  Router, Switch} from 'react-router-dom';
 import { createBrowserHistory } from "history"
 import FilmDetail from './pages/FilmDetail';
 import ChairTable from './pages/ChairTable';
+import "./Assets/css/iindex.css"
 export const history = createBrowserHistory();
 function App() {
   return (

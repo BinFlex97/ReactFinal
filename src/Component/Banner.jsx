@@ -13,20 +13,22 @@ const contentStyle = {
 export default function Banner() {
   return (
     <div>
-        <Carousel autoplay>
-    <div>
-      <h3 style={contentStyle}>1</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>2</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>3</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>4</h3>
-    </div>
-  </Carousel>
+      <h1>Đặt Vé Xem Phim</h1>
+      <Carousel autoplay top>
+        <div>
+          <div style={contentStyle}>1
+          </div>
+        </div>
+        <div>
+          <h3 style={contentStyle}>2</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>3</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>4</h3>
+        </div>
+      </Carousel>
     </div>
   )
 }
