@@ -1,0 +1,21 @@
+.bg{
+    background-image: url('https://picsum.photos/200/300');
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+.circle {
+    border: 15px solid red;
+    height: 150px;
+    -moz-border-radius:75px;
+    -webkit-border-radius: 100px;
+    width: 150px;
+}
