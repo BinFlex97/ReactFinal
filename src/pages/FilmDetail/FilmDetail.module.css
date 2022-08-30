@@ -1,11 +1,11 @@
-.bg{
+/* .bg{
     background-image: url('https://picsum.photos/200/300');
     height: 400px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-}
+} */
 .overlay{
     position: absolute;
     height: 100%;
