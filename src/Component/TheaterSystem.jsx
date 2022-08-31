@@ -1,62 +1,35 @@
-import { Card, Col, List, Menu, Radio, Row, Space } from 'antd'
-import Sider from 'antd/lib/layout/Sider'
+import { Card, Col, Menu, Radio, Row, Space } from 'antd'
 import React from 'react'
+import { useState } from 'react'
+import { GetListAPI } from '../Service/Service';
+import { THEATER_SYSTEM_LINK } from '../ultil/setting';
 
-const dataList = [
-    {
-      title: 'Title 1',
-    },
-    {
-      title: 'Title 2',
-    },
-    {
-      title: 'Title 3',
-    },
-    {
-      title: 'Title 4',
-    },
-    {
-      title: 'Title 5',
-    },
-    {
-      title: 'Title 6',
-    },
-  ];
 
 export default function TheaterSystem() {
+    let [theaterSystem, setTheaterSystem] = useState([]);
+    GetListAPI(THEATER_SYSTEM_LINK, setTheaterSystem)
+
+    let theaterSystemItem = [];
+
+    theaterSystem.map((theater) => {
+        let item = {
+            key: theater.maHeThongRap,
+            icon: <img alt='' style={{ width: "30px", height: "30px" }} src={theater.logo} />,
+            label: theater.tenHeThongRap,
+        }
+        theaterSystemItem.push(item)
+    })
     return (
         <div>
             <h4>Mua vé theo rạp</h4>
-            <Row>
+            <Row gutter={{ xs: 8, sm: 16, md: 24,xl: 30}}>
                 <Col span={6} order={1}>
-                    <Menu
-                        theme="light"
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
-                        items={[
-                            {
-                                key: '1',
-                                icon: "",
-                                label: 'nav 1',
-                            },
-                            {
-                                key: '2',
-                                icon: "",
-                                label: 'nav 2',
-                            },
-                            {
-                                key: '3',
-                                icon: "",
-                                label: 'nav 3',
-                            },
-                        ]}
-                    />
+                    <h5>Hệ Thống Rạp</h5>
+                    <Menu theme="light" mode="inline" defaultSelectedKeys={['1']} items={theaterSystemItem}/>
                 </Col>
                 <Col span={6} order={2}>
-                    <Menu
-                        theme="light"
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
+                    <h5>Cụm Rạp</h5>
+                    <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}
                         items={[
                             {
                                 key: '1',
@@ -90,18 +63,9 @@ export default function TheaterSystem() {
                     <Card title="Tên Rạp">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, cupiditate!
                     </Card>
-                    <List
-                        grid={{
-                            gutter: 10,
-                            column:1
-                        }}
-                        dataSource={dataList}
-                        renderItem={item => (
-                            <List.Item>
-                                <Card title={item.title}>Card content</Card>
-                            </List.Item>
-                        )}
-                    />
+                    <Card title="Danh Sách Phim">
+                        Card content
+                    </Card>
                 </Col>
             </Row>
         </div >
