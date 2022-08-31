@@ -1,10 +1,12 @@
 import { Carousel } from 'antd';
 import React, { useState } from 'react'
-import { BANNER_LINK } from '../ultil/setting';
-import { GetListAPI } from '../Service/Service';
+import { GetListAPI } from '../../../Service/Service';
+import { BANNER_LINK } from '../../../ultil/setting';
+
+
 
 const contentStyle = {
-  height: '750px',
+  height: '780px',
   width: '100%',
   color: '#fff',
   textAlign: 'center',

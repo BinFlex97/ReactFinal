@@ -7,8 +7,9 @@ import { Avatar, Card } from 'antd';
 import { EyeOutlined, LikeOutlined, SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
 import axios from "axios"
 import { useState } from 'react';
-import { MOVIES_LINK, MOVIES_LIST_LINK, TOKEN, URL_API } from '../ultil/setting';
-import { GetListAPI } from '../Service/Service';
+import { MOVIES_LINK, MOVIES_LIST_LINK, TOKEN, URL_API } from '../../../ultil/setting';
+import { GetListAPI } from '../../../Service/Service';
+
 
 
 

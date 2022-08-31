@@ -1,22 +1,22 @@
 import 'antd/dist/antd.min.css';
 import './App.css';
-import MainLayout from './layout/MainLayout';
-import Home from './pages/Home';
+import CustomerLayout from './layout/CustomerLayout';
 import {  Router, Switch} from 'react-router-dom';
 import { createBrowserHistory } from "history"
 import FilmDetail from './pages/FilmDetail';
 import ChairTable from './pages/ChairTable';
 import "./Assets/css/iindex.css"
+import Home from './pages/Home/Home';
 export const history = createBrowserHistory();
 function App() {
   return (
     <div className="App">
       <Router history={history}>
         <Switch>
-          <MainLayout exact path="/" component={Home} />
-          <MainLayout exact path="/home" component={Home} />
-          <MainLayout exact path="/filmdetail" component={FilmDetail} />
-          <MainLayout exact path="/chairtable" component={ChairTable} />
+          <CustomerLayout exact path="/" component={Home} />
+          <CustomerLayout exact path="/home" component={Home} />
+          <CustomerLayout exact path="/filmdetail" component={FilmDetail} />
+          <CustomerLayout exact path="/chairtable" component={ChairTable} />
         </Switch>
       </Router>
     </div>

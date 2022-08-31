@@ -1,8 +1,8 @@
 import { Card, Col, Menu, Radio, Row, Space } from 'antd'
 import React from 'react'
 import { useState } from 'react'
-import { GetListAPI } from '../Service/Service';
-import { THEATER_SYSTEM_LINK } from '../ultil/setting';
+import { GetListAPI } from '../../../Service/Service';
+import { THEATER_SYSTEM_LINK } from '../../../ultil/setting';
 
 
 export default function TheaterSystem() {

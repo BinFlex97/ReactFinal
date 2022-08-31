@@ -1,7 +1,8 @@
 import React from 'react'
-import Banner from '../Component/Banner'
-import MovieListSlides from '../Component/MovieListSlides'
-import TheaterSystem from '../Component/TheaterSystem'
+import Banner from './Component/Banner'
+import MovieListSlides from './Component/MovieListSlides'
+import TheaterSystem from './Component/TheaterSystem'
+
 
 
 const Home = () => {
