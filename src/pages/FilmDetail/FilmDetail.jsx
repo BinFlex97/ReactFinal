@@ -18,7 +18,7 @@ export default function FilmDetail(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           position: "relative",
-          height: "400px",
+          height: "600px",
         }}
       >
         <div className={styleDetail.overlay}>
