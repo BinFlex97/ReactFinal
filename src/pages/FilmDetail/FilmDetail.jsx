@@ -43,14 +43,12 @@ export default function FilmDetail(props) {
               <div className="row">
                 <div className="col-6" style={{ marginTop: "140px" }}>
                   <div className="d-flex justify-content-center align-items-center">
-                    <iframe
-                      allowFullScreen="100"
-                      loading="lazy"
+                    <img
                       width={250}
                       height={300}
-                      src={filmDetail.trailer}
-                      frameBorder="0"
-                    ></iframe>
+                      src={filmDetail.hinhAnh}
+                      alt=""
+                    />
 
                     <div className="ml-5 text-white font-weight-bold">
                       <p>
