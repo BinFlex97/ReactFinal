@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Menu } from 'antd';
+import { Affix, Layout, Menu } from 'antd';
 import {
   PhoneOutlined,
   PlayCircleTwoTone,
@@ -13,27 +13,27 @@ export default function MainHeader() {
     {
       label: 'Cyber Cinema',
       key: 'Cyber Cinema',
-      icon: <PlayCircleTwoTone style={{ fontSize: "40px" }} />,
+      icon: <PlayCircleTwoTone className='logo' style={{ fontSize: "40px" }} />,
     },
     {
       label: (<NavLink to="/home">Home</NavLink>),
       key: 'Home',
-      icon: <HomeOutlined style={{ fontSize: "20px" }} />
+      icon: <HomeOutlined className='logo' style={{ fontSize: "20px" }} />
     },
     {
       label: (<NavLink to="/filmdetail">Film Detail</NavLink>),
       key: 'Film Detail',
-      icon: <PhoneOutlined style={{ fontSize: "20px" }} />
+      icon: <PhoneOutlined className='logo' style={{ fontSize: "20px" }} />
     },
     {
       label: (<NavLink to="/chairtable">Chair Table</NavLink>),
       key: 'Chair Table',
-      icon: <InfoOutlined style={{ fontSize: "20px" }} />
+      icon: <InfoOutlined className='logo' style={{ fontSize: "20px" }} />
     },
     {
       label: 'Submenu',
       key: 'Submenu',
-      icon: <InfoOutlined style={{ fontSize: "20px" }} />,
+      icon: <InfoOutlined className='logo' style={{ fontSize: "20px" }} />,
       children: [
         {
           label: 'Submenu1',
@@ -48,13 +48,15 @@ export default function MainHeader() {
 
   ]
   return (
-    <Header>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['Home']}
-            items={menuItem}
-          />
+    <Affix offsetTop={0}>
+      <Header>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['Home']}
+          items={menuItem}
+        />
       </Header>
+    </Affix>
   )
 }

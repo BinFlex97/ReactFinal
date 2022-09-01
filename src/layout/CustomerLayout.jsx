@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import { NavLink, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { Breadcrumb, Layout} from 'antd';
 import MainHeader from '../Component/MainHeader';
 const { Content, Footer } = Layout;
 
-const MainLayout = (props) => { 
+const CustomerLayout = (props) => { 
   return <Route exact path={props.path} render={(propsRoute) => {
     return <Fragment>
       <Layout className="layout">
@@ -42,4 +42,4 @@ const MainLayout = (props) => {
   }} />
 }
 
-export default MainLayout
+export default CustomerLayout
