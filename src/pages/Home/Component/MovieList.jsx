@@ -1,14 +1,12 @@
 import React from 'react'
 
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Avatar, Card } from 'antd';
-import { EyeOutlined, LikeOutlined, SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
-import axios from "axios"
+import { Card } from 'antd';
+import { EyeOutlined, LikeOutlined} from '@ant-design/icons';
 import { useState } from 'react';
-import { MOVIES_LINK, MOVIES_LIST_LINK, TOKEN, URL_API } from '../../../ultil/setting';
-import { GetListAPI } from '../../../Service/Service';
+import { homeService } from '../../../Service/HomeService';
+
 
 
 
@@ -21,8 +19,12 @@ arr.length = 10
 const RenderCard = () => {
     let [movieArr, setMovieArr] = useState([])
 
-    GetListAPI(MOVIES_LIST_LINK,setMovieArr)
-
+    homeService.GetMovieList().then((result) => {
+        setMovieArr(result.data.content);
+      }).catch((error) => {
+        console.log(error)
+      })
+    
     return movieArr.map((movie) => {
         return <SwiperSlide  className='mb-2' key={movie.maPhim}>
             <Card
@@ -51,7 +53,7 @@ const RenderCard = () => {
         </SwiperSlide>
     })
 }
-export default function MovieListSlides() {
+export default function MovieList() {
     return (
         <div>
             <h4>Danh Sách Phim</h4>

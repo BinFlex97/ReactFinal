@@ -1,6 +1,6 @@
 import React from 'react'
 import Banner from './Component/Banner'
-import MovieListSlides from './Component/MovieListSlides'
+import MovieList from './Component/MovieList'
 import TheaterSystem from './Component/TheaterSystem'
 
 
@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Banner/>
-      <MovieListSlides/>
+      <MovieList/>
       <TheaterSystem/>
     </div>
   )
