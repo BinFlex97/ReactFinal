@@ -69,9 +69,7 @@ export default function ListRapDetailFilm(props) {
       style={{ borderRadius: "10px", backgroundColor: "rgba(255,255,255,0.9)" }}
     >
       <Tabs tabPosition={tabPosition} centered>
-        {renderHeThongRapDetail()
-          ? renderHeThongRapDetail()
-          : alert("Phim đã hết lịch chiếu!")}
+        {renderHeThongRapDetail()}
       </Tabs>
     </div>
   );
