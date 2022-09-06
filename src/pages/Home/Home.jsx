@@ -1,7 +1,7 @@
 import React from 'react'
 import Banner from './Component/Banner'
 import MovieList from './Component/MovieList'
-import TheaterSystem from './Component/TheaterSystem'
+import MovieSchedule from './Component/MovieSchedule'
 
 
 
@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <Banner/>
       <MovieList/>
-      <TheaterSystem/>
+      <MovieSchedule/>
     </div>
   )
 }

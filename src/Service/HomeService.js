@@ -7,11 +7,9 @@ export class HomeService extends Service{
     GetMovieList = () => {
         return this.get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP05")
     }
-    GetTheaterSystemList = () => {
-        return this.get(`/api/QuanLyRap/LayThongTinHeThongRap`)
-    }
-    GetTheaterGroupList = (url) => {
-        return this.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${url}`)
+    
+    GetMoviesSchedule = () => {
+        return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap`)
     }
 }
 
