@@ -3,6 +3,3 @@ export const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y
 
 export const BANNER_URL = "/api/QuanLyPhim/LayDanhSachBanner"
 export const MOVIES_LIST_URL = "/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03"
-export const THEATER_SYSTEM_URL = "https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap"
-export const THEATER_GROUP_URL = "https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap="
-export const THEATER_DETAIL_URL = "https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap="

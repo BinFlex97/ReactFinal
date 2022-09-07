@@ -1,23 +1,22 @@
-import React from 'react'
+import React from "react";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { Card } from 'antd';
-import { EyeOutlined, LikeOutlined} from '@ant-design/icons';
-import { useState } from 'react';
-import { homeService } from '../../../Service/HomeService';
-
-
-
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Card } from "antd";
+import {
+  EyeOutlined,
+  LikeOutlined,
+} from "@ant-design/icons";
+import { useState } from "react";
+import { homeService } from "../../../Service/HomeService";
 
 const { Meta } = Card;
 
-let arr = []
-arr.length = 10
+let arr = [];
+arr.length = 10;
 
 const RenderCard = () => {
-    let [movieArr, setMovieArr] = useState([])
+  let [movieArr, setMovieArr] = useState([]);
 
     homeService.GetMovieList().then((result) => {
         setMovieArr(result.data.content);
@@ -54,16 +53,12 @@ const RenderCard = () => {
     })
 }
 export default function MovieList() {
-    return (
-        <div>
-            <h4>Danh Sách Phim</h4>
-            <Swiper
-                spaceBetween={50}
-                slidesPerView={6}
-                className="text-center "
-            >
-                {RenderCard()}
-            </Swiper>
-        </div>
-    )
+  return (
+    <div>
+      <h4>Danh Sách Phim</h4>
+      <Swiper spaceBetween={50} slidesPerView={6} className="text-center ">
+        {RenderCard()}
+      </Swiper>
+    </div>
+  );
 }

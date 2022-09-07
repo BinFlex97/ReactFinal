@@ -1,7 +1,8 @@
-import { Button, Card, Col, Collapse, Divider, List, Menu, Row } from 'antd'
+import { Avatar, Button, Card, Cascader, Col, Collapse, Divider, List, Menu, Row } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { homeService } from '../../../Service/HomeService'
 import moment from "moment"
+import { SearchOutlined } from '@ant-design/icons';
 const { Panel } = Collapse;
 
 export default function MovieSchedule() {
