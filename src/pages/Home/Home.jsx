@@ -1,18 +1,16 @@
-import React from 'react'
-import Banner from './Component/Banner'
-import MovieListSlides from './Component/MovieListSlides'
-import TheaterSystem from './Component/TheaterSystem'
+import React from "react";
+import Banner from "./Component/Banner";
+import MovieList from "./Component/MovieList";
+import MovieSchedule from "./Component/MovieSchedule";
 
-
-
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
-      <Banner/>
-      <MovieListSlides/>
-      <TheaterSystem/>
+      <Banner />
+      <MovieList />
+      <MovieSchedule />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

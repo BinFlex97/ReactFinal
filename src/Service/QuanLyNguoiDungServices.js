@@ -1,30 +1,16 @@
 import axios from "axios";
-import { ACCESS_TOKEN, TOKEN, URL_API } from "../ultil/setting";
+import { ACCESS_TOKEN, DOMAIN, TOKEN, } from "../ultil/setting";
+import { Service } from "./Service";
 
-export class QuanLyNguoiDungServices {
+export class QuanLyNguoiDungServices extends Service {
     constructor() {
-
+        super();
     }
     dangNhap = (thongTinDangNhap) => {
-        return axios({
-            method: "POST",
-            url: `${URL_API}/api/QuanLyNguoiDung/DangNhap `,
-            data: thongTinDangNhap,
-            headers: {
-                TokenCybersoft: TOKEN,
-            }
-        });
+        return this.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinDangNhap);
     };
     dangKy = (thongTinDangKy) => {
-        return axios({
-            method: "POST",
-            url: `${URL_API}/api/QuanLyNguoiDung/DangKy `,
-            data: thongTinDangKy,
-            headers: {
-                TokenCybersoft: TOKEN,
-                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
-            }
-        });
+        return this.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinDangKy);
     };
 
 }

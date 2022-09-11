@@ -1,12 +1,13 @@
 import { Carousel } from 'antd';
 import React, { useState } from 'react'
+import { homeService } from '../../../Service/HomeService';
 import { GetListAPI } from '../../../Service/Service';
-import { BANNER_LINK } from '../../../ultil/setting';
+import { BANNER_URL } from '../../../ultil/setting';
 
 
 
 const contentStyle = {
-  height: '780px',
+  height: '750px',
   width: '100%',
   color: '#fff',
   textAlign: 'center',
@@ -16,7 +17,12 @@ const contentStyle = {
 let RenderBanner = () => {
   
   let [ bannerArr, setBannerArr ] = useState([])
-  GetListAPI(BANNER_LINK,setBannerArr)
+  
+  homeService.GetBannerList().then((result) => {
+    setBannerArr(result.data.content);
+  }).catch((error) => {
+    console.log(error)
+  })
   
   return bannerArr.map((banner,index) => {
     return <div key={index}>

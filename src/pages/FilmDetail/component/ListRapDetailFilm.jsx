@@ -52,7 +52,7 @@ export default function ListRapDetailFilm(props) {
                         key={index}
                         className="p-2"
                       >
-                        <button className="btn btn-outline-success">
+                        <button className="btn btn-outline-success my-2">
                           {moment(lichChieu.ngayChieuGioChieu).format("h:mm a")}
                         </button>
                       </NavLink>

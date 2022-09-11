@@ -1,19 +1,25 @@
-import React from 'react'
-import axios from 'axios'
-import { TOKEN, URL_API } from '../ultil/setting';
+import axios from 'axios';
+import { ACCESS_TOKEN, DOMAIN, TOKEN } from '../ultil/setting';
 
-
-
-export function GetListAPI(API,setArray) {
-    axios({
-        method: "get",
-        url: `${URL_API}${API}`,
-        headers: {
-          "TokenCybersoft": TOKEN,
-        }
-      }).then((result) => {
-        setArray(result.data.content)
-      }).catch((e) => {
-        console.log(e.message)
-      })
+export class Service {
+  get = (url) => {
+    return axios({
+      method: 'get',
+      url: `${DOMAIN}${url}`,
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
+    });
+  };
+  post = (url, data) => {
+    return axios({
+      method: "POST",
+      url: `${DOMAIN}${url}`,
+      data: data,
+      headers: {
+        TokenCybersoft: TOKEN,
+        'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+      }
+    });
+  };
 }
