@@ -4,7 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import ListRapDetailFilm from "./component/ListRapDetailFilm";
 import { layThongTinLichChieuAction } from "../../Redux/Action/QuanLyHeThongRapAction.js";
+//Css
+import filmDetailCss from "./FilmDetail.module.css";
+
 const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+
 export default function FilmDetail(props) {
   let { id } = props.match.params;
   let { filmDetail } = useSelector(
@@ -41,68 +45,84 @@ export default function FilmDetail(props) {
           >
             <div className="container">
               <div className="row">
-                <div className="col-6" style={{ marginTop: "140px" }}>
-                  <div className="d-flex justify-content-center align-items-center">
-                    <img
-                      width={250}
-                      height={300}
-                      src={filmDetail.hinhAnh}
-                      alt=""
-                    />
-
-                    <div className="ml-5 text-white font-weight-bold">
-                      <p>
-                        {moment(filmDetail.ngayKhoiChieu).format("DD.MM.YYYY")}
-                      </p>
-                      <h4 className="text-warning">{filmDetail.tenPhim}</h4>
-                      <p>
-                        {filmDetail.moTa?.length > 300
-                          ? `${filmDetail.moTa.slice(0, 300)}.....`
-                          : filmDetail.moTa}
-                      </p>
-                      <button className="btn btn-danger">Mua Vé</button>
+                <div className="col-6">
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "20vh",
+                    }}
+                  >
+                    <div className="d-flex justify-content-center align-items-center">
+                      <img
+                        width={250}
+                        height={300}
+                        src={filmDetail.hinhAnh}
+                        alt=""
+                      />
+                      <div
+                        className={`ml-3 text-white font-weight-bold ${filmDetailCss["reponsive"]}`}
+                      >
+                        <p>
+                          {moment(filmDetail.ngayKhoiChieu).format(
+                            "DD.MM.YYYY"
+                          )}
+                        </p>
+                        <h4 className="text-warning">{filmDetail.tenPhim}</h4>
+                        <p>
+                          {filmDetail.moTa?.length > 300
+                            ? `${filmDetail.moTa.slice(0, 300)}.....`
+                            : filmDetail.moTa}
+                        </p>
+                        <button className="btn btn-danger">Mua Vé</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                    marginTop: "140px",
-                  }}
-                  className="col-6"
-                >
-                  <span className="my-2 text-danger font-weight-bold">
-                    Đánh Giá Phim
-                  </span>
-
-                  <div>
-                    <Progress
-                      type="circle"
-                      percent={100}
-                      format={() => {
-                        return (
-                          <span
-                            style={{
-                              fontSize: "50px",
-                              color: "white",
-                              fontWeight: "bold",
-                            }}
-                          >
-                            {filmDetail.danhGia}đ
-                          </span>
-                        );
+                <div className="col-6">
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "30vh",
+                      left: "50%",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
                       }}
-                    />
+                    >
+                      <span className="my-2 text-danger text-center font-weight-bold">
+                        Đánh Giá Phim
+                      </span>
+
+                      <div>
+                        <Progress
+                          type="circle"
+                          percent={100}
+                          format={() => {
+                            return (
+                              <span
+                                style={{
+                                  fontSize: "50px",
+                                  color: "white",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                {filmDetail.danhGia}đ
+                              </span>
+                            );
+                          }}
+                        />
+                      </div>
+                      <Rate
+                        tooltips={desc}
+                        onChange={setValue}
+                        // value={(`${filmDetail.danhGia}` / 2).toFixed(2)}
+                        value={(`${filmDetail.danhGia}` / 2).toFixed(2)}
+                      />
+                    </div>
                   </div>
-                  <Rate
-                    tooltips={desc}
-                    onChange={setValue}
-                    // value={(`${filmDetail.danhGia}` / 2).toFixed(2)}
-                    value={(`${filmDetail.danhGia}` / 2).toFixed(2)}
-                  />
                 </div>
               </div>
             </div>

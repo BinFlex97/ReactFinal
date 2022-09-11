@@ -3,10 +3,14 @@ import './App.css';
 import CustomerLayout from './layout/CustomerLayout';
 import { Router, Switch } from 'react-router-dom';
 import { createBrowserHistory } from "history";
-import ChairTable from './pages/ChairTable';
 import "./Assets/css/iindex.css";
 import Home from './pages/Home/Home';
 import FilmDetail from "./pages/FilmDetail/FilmDetail";
+import Login from './pages/Login/Login.';
+import { UserLayout } from './layout/UserLayout';
+import Register from './pages/Register/Register';
+import { ChairTableLayout } from './layout/ChairTableLayout';
+import ChairTable from './pages/ChairTable/ChairTable';
 export const history = createBrowserHistory();
 function App() {
   return (
@@ -16,7 +20,14 @@ function App() {
           <CustomerLayout exact path="/" component={Home} />
           <CustomerLayout exact path="/home" component={Home} />
           <CustomerLayout exact path="/filmdetail/:id" component={FilmDetail} />
-          <CustomerLayout exact path="/chairtable" component={ChairTable} />
+
+
+          <UserLayout exact path="/login" Component={Login} />
+          <UserLayout exact path="/register" Component={Register} />
+
+          <ChairTableLayout exact path="/chairtable/:id" component={ChairTable} />
+
+
         </Switch>
       </Router>
     </div>

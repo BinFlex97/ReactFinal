@@ -47,8 +47,12 @@ export default function ListRapDetailFilm(props) {
                   <p>{cumRap.diaChi}</p>
                   {cumRap.lichChieuPhim.map((lichChieu, index) => {
                     return (
-                      <NavLink to="/" key={index} className="p-2">
-                        <button className="btn btn-outline-success">
+                      <NavLink
+                        to={`/chairtable/${lichChieu.maLichChieu}`}
+                        key={index}
+                        className="p-2"
+                      >
+                        <button className="btn btn-outline-success my-2">
                           {moment(lichChieu.ngayChieuGioChieu).format("h:mm a")}
                         </button>
                       </NavLink>
@@ -69,9 +73,7 @@ export default function ListRapDetailFilm(props) {
       style={{ borderRadius: "10px", backgroundColor: "rgba(255,255,255,0.9)" }}
     >
       <Tabs tabPosition={tabPosition} centered>
-        {renderHeThongRapDetail()
-          ? renderHeThongRapDetail()
-          : alert("Phim đã hết lịch chiếu!")}
+        {renderHeThongRapDetail()}
       </Tabs>
     </div>
   );
