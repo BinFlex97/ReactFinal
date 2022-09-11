@@ -1,8 +1,7 @@
-import { Avatar, Button, Card, Cascader, Col, Collapse, Divider, List, Menu, Row } from 'antd'
+import { Button, Card, Col, Collapse, Divider, List, Menu, Row } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { homeService } from '../../../Service/HomeService'
 import moment from "moment"
-import { SearchOutlined } from '@ant-design/icons';
+import { theaterService } from '../../../Service/TheaterService';
 const { Panel } = Collapse;
 
 export default function MovieSchedule() {
@@ -20,20 +19,20 @@ export default function MovieSchedule() {
     })
 
 
-    let GetData = () => {
-        homeService.GetMoviesSchedule().then((result) => {
+    const GetData = () => {
+        theaterService.GetMoviesSchedule().then((result) => {
             setData(result.data.content);
         }).catch((error) => {
             console.log(error)
         })
     }
-    let GetGroupItems = (event) => {
+    const GetGroupItems = (event) => {
         data.map((system) => {
             if (system.maHeThongRap === event.key)
                 setGroupList(groupList = { list: system.lstCumRap, logo: system.logo })
         })
     }
-    let GetMovieItems = (event) => {
+    const GetMovieItems = (event) => {
         groupList.list.map((group) => {
             if (group.maCumRap === event.key)
                 setMovieList(movieList = {
@@ -46,7 +45,7 @@ export default function MovieSchedule() {
         })
     }
 
-    let RenderSystem = () => {
+    const RenderSystem = () => {
         let items = data.map((system) => {
             return {
                 key: system.maHeThongRap,
@@ -62,7 +61,7 @@ export default function MovieSchedule() {
             </Panel>
         </Collapse>
     }
-    let RenderGroup = () => {
+    const RenderGroup = () => {
         let items = groupList.list.map((group) => {
             return {
                 key: group.maCumRap,
@@ -76,19 +75,20 @@ export default function MovieSchedule() {
             </Panel>
         </Collapse>
     }
-    let RenderMovieSchedule = () => {
+    const RenderMovieSchedule = () => {
         let items = movieList.list.map((movie) => {
             return {
                 key: movie.maPhim,
                 icon: <img alt='' style={{ width: "100px", height: "100px" }} src={movie.hinhAnh} />,
                 label: movie.tenPhim,
-                schedule: movie.lstLichChieuTheoPhim.map((schedule) => {
+                schedule: movie.lstLichChieuTheoPhim.map((schedule,index) => {
                     let time = moment(schedule.ngayChieuGioChieu).format("HH:MM")
-                    return <Button onClick={() => { console.log("Mã lịch chiếu : " + schedule.maLichChieu) }} icon={""} size="middle">{time}</Button>
+                    return <span key={index}>
+                        <Button onClick={() => { console.log("Mã lịch chiếu : " + schedule.maLichChieu) }} icon={""} size="middle">{time}</Button>
+                    </span>
                 })
             }
         })
-
         return <div>
             <Card title={`Rạp: ${movieList.info.name}`}>
                 Địa chỉ: {movieList.info.address}

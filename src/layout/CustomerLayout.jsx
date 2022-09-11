@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
 import { Breadcrumb, Layout } from "antd";
-import MainHeader from "../Component/MainHeader";
+import CustomerHeader from "../Component/CustomerHeader";
 const { Content, Footer } = Layout;
 
 const CustomerLayout = (props) => {
@@ -13,7 +13,7 @@ const CustomerLayout = (props) => {
         return (
           <Fragment>
             <Layout className="layout">
-              <MainHeader />
+              <CustomerHeader />
               <Content
                 style={{
                   padding: "0 50px",

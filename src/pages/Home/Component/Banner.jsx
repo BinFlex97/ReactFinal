@@ -1,8 +1,6 @@
 import { Carousel } from 'antd';
 import React, { useState } from 'react'
-import { homeService } from '../../../Service/HomeService';
-import { GetListAPI } from '../../../Service/Service';
-import { BANNER_URL } from '../../../ultil/setting';
+import { movieService } from '../../../Service/MovieService';
 
 
 
@@ -18,7 +16,7 @@ let RenderBanner = () => {
   
   let [ bannerArr, setBannerArr ] = useState([])
   
-  homeService.GetBannerList().then((result) => {
+  movieService.GetBannerList().then((result) => {
     setBannerArr(result.data.content);
   }).catch((error) => {
     console.log(error)

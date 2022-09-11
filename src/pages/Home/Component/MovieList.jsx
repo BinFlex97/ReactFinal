@@ -8,7 +8,7 @@ import {
   LikeOutlined,
 } from "@ant-design/icons";
 import { useState } from "react";
-import { homeService } from "../../../Service/HomeService";
+import { movieService } from "../../../Service/MovieService";
 
 const { Meta } = Card;
 
@@ -18,7 +18,7 @@ arr.length = 10;
 const RenderCard = () => {
   let [movieArr, setMovieArr] = useState([]);
 
-    homeService.GetMovieList().then((result) => {
+    movieService.GetMovieList().then((result) => {
         setMovieArr(result.data.content);
       }).catch((error) => {
         console.log(error)

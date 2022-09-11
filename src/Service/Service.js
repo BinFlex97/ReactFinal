@@ -11,4 +11,33 @@ export class Service {
       }
     })
   }
+  put = (url, model) => {
+    return axios({
+      url: `${DOMAIN}/${url}`,
+      method: 'PUT',
+      data: model,
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
+    })
+  }
+  post = (url, model) => {
+    return axios({
+      url: `${DOMAIN}/${url}`,
+      method: 'POST',
+      data: model,
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
+    })
+  }
+  delete = (url) => {
+    return axios({
+        url:`${DOMAIN}/${url}`,
+        method:'DELETE',
+        headers: {
+          "TokenCybersoft": TOKEN
+        }
+    })
+}
 }

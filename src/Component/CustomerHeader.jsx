@@ -8,12 +8,17 @@ import {
 } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 const { Header } = Layout;
-export default function MainHeader() {
+export default function CustomerHeader() {
   const menuItem = [
     {
       label: "Cyber Cinema",
       key: "Cyber Cinema",
       icon: <PlayCircleTwoTone className="logo" style={{ fontSize: "40px" }} />,
+    },
+    {
+      label: <NavLink to="/admin">Admin</NavLink>,
+      key: "Admin",
+      icon: <HomeOutlined className="logo" style={{ fontSize: "20px" }} />,
     },
     {
       label: <NavLink to="/home">Home</NavLink>,
