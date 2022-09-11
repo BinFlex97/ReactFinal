@@ -47,7 +47,11 @@ export default function ListRapDetailFilm(props) {
                   <p>{cumRap.diaChi}</p>
                   {cumRap.lichChieuPhim.map((lichChieu, index) => {
                     return (
-                      <NavLink to="/" key={index} className="p-2">
+                      <NavLink
+                        to={`/chairtable/${lichChieu.maLichChieu}`}
+                        key={index}
+                        className="p-2"
+                      >
                         <button className="btn btn-outline-success">
                           {moment(lichChieu.ngayChieuGioChieu).format("h:mm a")}
                         </button>
