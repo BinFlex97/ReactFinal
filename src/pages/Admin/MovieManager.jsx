@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import {
     EditTwoTone,
     DeleteOutlined,
+    ScheduleOutlined
 } from "@ant-design/icons";
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -104,8 +105,13 @@ export default function MovieManager() {
             description: movie.moTa.length > 60 ? movie.moTa.slice(0, 60) + "..." : movie.moTa,
             status: [`Rate: ${movie.danhGia}`, movie.hot ? "Hot" : "", movie.dangChieu ? "Đang Chiếu" : "", movie.sapChieu ? "Sắp Chiếu" : ""],
             action: <Space size="small">
-                <NavLink to={`/admin/editfilm/${movie.maPhim}`}><EditTwoTone style={{ fontSize: 30 }} /></NavLink>
-                <Button type="text"><DeleteOutlined style={{ fontSize: "30px", color: "red" }} /></Button>
+                <NavLink to={`/admin/film/editfilm/${movie.maPhim}`}>
+                    <Button type="text"><EditTwoTone style={{ fontSize: 25 }} /></Button>
+                </NavLink>
+                <Button type="text"><DeleteOutlined style={{ fontSize: 25, color: "red" }} /></Button>
+                <NavLink to={`/admin/film/showtime/${movie.maPhim}`} onClick={() => {localStorage.setItem("movie", JSON.stringify(movie))}}>
+                    <Button type="text"><ScheduleOutlined style={{ fontSize: 25, color: "green" }} /></Button>
+                </NavLink>
             </Space>
         }
     })
@@ -115,7 +121,7 @@ export default function MovieManager() {
     return (
         <div>
             <h3>Danh Sách Phim</h3>
-            <button><NavLink to="/admin/addfilm">Thêm Phim</NavLink></button>
+            <button><NavLink to="/admin/film/addfilm">Thêm Phim</NavLink></button>
             <Table columns={columns} dataSource={data} />
         </div>
     )

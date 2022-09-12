@@ -17,7 +17,7 @@ arr.length = 10;
 
 const RenderCard = () => {
   let [movieArr, setMovieArr] = useState([]);
-
+    console.log(movieArr)
     movieService.GetMovieList().then((result) => {
         setMovieArr(result.data.content);
       }).catch((error) => {

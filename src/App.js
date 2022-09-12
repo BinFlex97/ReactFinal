@@ -11,6 +11,7 @@ import AdminLayout from './layout/AdminLayout';
 import MovieManager from './pages/Admin/MovieManager';
 import AddMovie from './pages/Admin/AddMovie';
 import EditMovie from './pages/Admin/EditMovie';
+import ShowTime from './pages/Admin/ShowTime';
 export const history = createBrowserHistory();
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
           <CustomerLayout exact path="/filmdetail/:id" component={FilmDetail} />
           <CustomerLayout exact path="/chairtable" component={ChairTable} />
 
-          <AdminLayout exact path="/admin" component={MovieManager}/>
-          <AdminLayout exact path="/admin/addfilm" component={AddMovie}/>
-          <AdminLayout exact path="/admin/editfilm/:id" component={EditMovie}/>
+          <AdminLayout exact path="/admin/film" component={MovieManager}/>
+          <AdminLayout exact path="/admin/film/addfilm" component={AddMovie}/>
+          <AdminLayout exact path="/admin/film/editfilm/:id" component={EditMovie}/>
+          <AdminLayout exact path="/admin/film/showtime/:id" component={ShowTime}/>
         </Switch>
       </Router>
     </div>

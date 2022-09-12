@@ -7,7 +7,7 @@ import moment from "moment"
 import * as Yup from 'yup';
 import { AddNewMovieAction } from '../../Redux/Action/MovieAction'
 import { GROUP_ID } from '../../ultil/setting'
-export default function AddMovie(props) {
+export default function AddMovie() {
     const [componentSize, setComponentSize] = useState('default');
     const [showImgSRC, setShowImgSRC] = useState("")
     const dispatch = useDispatch()
@@ -57,7 +57,7 @@ export default function AddMovie(props) {
     })
     return (
         <div>
-
+            <h3>Thêm phim mới :</h3>
             <Form
                 labelCol={{
                     span: 4,

@@ -9,7 +9,7 @@ import { GROUP_ID } from '../../ultil/setting'
 import { history } from '../../App'
 import { useParams } from 'react-router-dom'
 export default function EditMovie() {
-    let params = useParams();
+    let {id} = useParams()
     const [componentSize, setComponentSize] = useState('default');
     const [showImgSRC, setShowImgSRC] = useState("")
     let { movieDetail } = useSelector(state => state.MovieReducer)
@@ -64,12 +64,11 @@ export default function EditMovie() {
         }
     })
     useEffect(() => {
-        let id = history.location.pathname.slice(history.location.pathname.length - 4)
         dispatch(GetMovieInfoAction(id))
     }, [])
     return (
         <div>
-
+            <h3>Chỉnh Sửa thông tin phim :</h3>
             <Form
                 labelCol={{
                     span: 4,
