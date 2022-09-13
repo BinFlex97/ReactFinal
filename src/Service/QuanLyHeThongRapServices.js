@@ -1,18 +1,13 @@
 import axios from "axios";
 import { DOMAIN, TOKEN } from "../ultil/setting";
+import { Service } from "./Service";
 
-export class QuanLyHeThongRapServices {
+export class QuanLyHeThongRapServices extends Service {
     constructor() {
-
+        super();
     }
     layThongTinLichChieu = (id) => {
-        return axios({
-            method: "GET",
-            url: `${DOMAIN}/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`,
-            headers: {
-                "TokenCybersoft": TOKEN
-            }
-        });
+        return this.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`);
     };
 
 }

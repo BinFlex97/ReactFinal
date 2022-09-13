@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { DOMAIN, TOKEN } from '../ultil/setting'
+import axios from 'axios';
+import { ACCESS_TOKEN, DOMAIN, TOKEN } from '../ultil/setting';
 
 export class Service {
   get = (url) => {
@@ -17,7 +17,8 @@ export class Service {
       method: 'PUT',
       data: model,
       headers: {
-        "TokenCybersoft": TOKEN
+        "TokenCybersoft": TOKEN,
+        'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
       }
     })
   }
@@ -27,7 +28,8 @@ export class Service {
       method: 'POST',
       data: model,
       headers: {
-        "TokenCybersoft": TOKEN
+        "TokenCybersoft": TOKEN,
+        'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
       }
     })
   }
@@ -36,7 +38,8 @@ export class Service {
         url:`${DOMAIN}/${url}`,
         method:'DELETE',
         headers: {
-          "TokenCybersoft": TOKEN
+          "TokenCybersoft": TOKEN,
+          'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
         }
     })
 }
