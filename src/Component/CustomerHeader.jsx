@@ -16,7 +16,7 @@ export default function CustomerHeader() {
       icon: <PlayCircleTwoTone className="logo" style={{ fontSize: "40px" }} />,
     },
     {
-      label: <NavLink to="/admin">Admin</NavLink>,
+      label: <NavLink to="/admin/film">Admin</NavLink>,
       key: "Admin",
       icon: <HomeOutlined className="logo" style={{ fontSize: "20px" }} />,
     },
