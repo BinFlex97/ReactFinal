@@ -14,8 +14,11 @@ export class MovieService extends Service{
     AddNewMovie = (data) => {
         return this.post(`/api/QuanLyPhim/ThemPhimUploadHinh`,data)
     }
-    UpdateMovie = (formData) => {
-        return this.put(``)
+    EditMovie = (formData) => {
+        return this.post(`/api/QuanLyPhim/CapNhatPhimUpload`,formData)
+    }
+    DeletaMovie = (id) => {
+        return this.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${id}`)
     }
 }
 export const movieService = new MovieService();

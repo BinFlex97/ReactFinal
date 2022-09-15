@@ -3,9 +3,6 @@ import { ACCESS_TOKEN, DOMAIN, TOKEN, } from "../ultil/setting";
 import { Service } from "./Service";
 
 export class QuanLyNguoiDungServices extends Service {
-    constructor() {
-        super();
-    }
     dangNhap = (thongTinDangNhap) => {
         return this.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinDangNhap);
     };

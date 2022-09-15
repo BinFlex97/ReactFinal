@@ -7,7 +7,9 @@ import {
 } from "@ant-design/icons";
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { GetMovieListAction } from '../../Redux/Action/MovieAction';
+import { DeletaMovieAction, GetMovieListAction } from '../../Redux/Action/MovieAction';
+import { movieService } from '../../Service/MovieService';
+import { history } from '../../App';
 
 const columns = [
     {
@@ -108,7 +110,9 @@ export default function MovieManager() {
                 <NavLink to={`/admin/film/editfilm/${movie.maPhim}`}>
                     <Button type="text"><EditTwoTone style={{ fontSize: 25 }} /></Button>
                 </NavLink>
-                <Button type="text"><DeleteOutlined style={{ fontSize: 25, color: "red" }} /></Button>
+                <Button onClick={() => {
+                    dispatch(DeletaMovieAction(movie.maPhim))
+                }} type="text"><DeleteOutlined style={{ fontSize: 25, color: "red" }} /></Button>
                 <NavLink to={`/admin/film/showtime/${movie.maPhim}`} onClick={() => {localStorage.setItem("movie", JSON.stringify(movie))}}>
                     <Button type="text"><ScheduleOutlined style={{ fontSize: 25, color: "green" }} /></Button>
                 </NavLink>

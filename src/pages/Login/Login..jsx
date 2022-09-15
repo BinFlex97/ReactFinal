@@ -16,15 +16,9 @@ export default function Login() {
     validationSchema: Yup.object({
       //Các hàm validation của từng trường dữ liệu
       taiKhoan: Yup.string()
-        .required("Tài khoản không được để trống")
-        .min(6, "Tối thiếu 6 ký tự")
-        .max(10, "Tối đa 10 ký tự"),
+        .required("Tài khoản không được để trống"),
       //Ít nhất ký chữ, in hoa, số...
       matKhau: Yup.string()
-        .matches(
-          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,8}$/,
-          "Mật khẩu chưa đúng định dạng"
-        )
         .required("Mật khẩu không được để trống"),
     }),
     onSubmit: (values) => {

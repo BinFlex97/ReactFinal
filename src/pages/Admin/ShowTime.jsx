@@ -4,6 +4,7 @@ import { theaterService } from '../../Service/TheaterService';
 import { useParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import moment from 'moment';
+import { history } from '../../App';
 export default function ShowTime() {
     let { id } = useParams()
     let movieInfo = JSON.parse(localStorage.getItem("movie"))
@@ -16,10 +17,13 @@ export default function ShowTime() {
             maPhim: id,
             ngayChieuGioChieu: "",
             maRap: "",
-            giaVe: 0,
+            giaVe: 75000,
         },
         onSubmit: (values) => {
-            console.log(values)
+            theaterService.AddShowtimeSchedule(values).then(async (result) => {
+                alert(result.data.content)
+                history.push("/admin/film")
+            }).catch((error) => {console.log(error)})
         }
     })
     useEffect(() => {

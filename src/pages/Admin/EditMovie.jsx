@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useFormik } from "formik"
 import moment from "moment"
 import * as Yup from 'yup';
-import { AddNewMovieAction, GetMovieInfoAction } from '../../Redux/Action/MovieAction'
+import { AddNewMovieAction, EditMovieAction, GetMovieInfoAction } from '../../Redux/Action/MovieAction'
 import { GROUP_ID } from '../../ultil/setting'
 import { history } from '../../App'
 import { useParams } from 'react-router-dom'
@@ -56,11 +56,10 @@ export default function EditMovie() {
                 } else {
                     if(values.hinhAnh !== null){
                         formData.append(key, values.hinhAnh, values.hinhAnh.name)
-                    }
-                    
+                    }       
                 }
             }
-            console.log(values)
+            dispatch(EditMovieAction(formData));
         }
     })
     useEffect(() => {

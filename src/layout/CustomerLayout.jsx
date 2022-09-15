@@ -11,7 +11,7 @@ const CustomerLayout = (props) => {
           <Fragment>
             <Layout className="layout">
               <CustomerHeader />
-              <Content style={{ padding: "0 50px" }}>
+              <Content style={{ padding: "80px 50px" }}>
                 <Breadcrumb style={{ margin: "16px 0" }}>
                   <Breadcrumb.Item>Home</Breadcrumb.Item>
                   <Breadcrumb.Item>List</Breadcrumb.Item>

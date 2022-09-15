@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN, TOKEN, USER_LOGIN } from "../../ultil/setting";
+import { ACCESS_TOKEN, USER_LOGIN } from "../../ultil/setting";
 import { DANG_KY, DANG_NHAP } from "../Type/QuanLyNguoiDungTypes";
 
 
@@ -11,7 +11,6 @@ const stateDefault = {
     userLogin: user,
     userRegister: {}
 };
-
 export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case DANG_NHAP: {

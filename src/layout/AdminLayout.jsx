@@ -1,7 +1,7 @@
 import { Layout, Menu } from 'antd';
 import React from 'react'
-import { UploadOutlined, UserOutlined, VideoCameraOutlined, PlayCircleTwoTone } from '@ant-design/icons';
-import { Route } from 'react-router-dom';
+import { UploadOutlined, UserOutlined, VideoCameraOutlined, GitlabOutlined } from '@ant-design/icons';
+import { NavLink, Route } from 'react-router-dom';
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -15,8 +15,11 @@ export default function AdminLayout(props) {
                         breakpoint="lg"
                     >
                         <div className="logo p-3" style={{ border: "1px solid gray" }}>
-                            <PlayCircleTwoTone className="logo" style={{ fontSize: "40px" }} />
-                            <span style={{ color: "white", fontSize: "20px" }}>Cyber Cinema</span>
+                            <NavLink to={"/home"}>
+                                <GitlabOutlined className="logo" style={{ fontSize: "40px" }} />
+                                <span style={{ color: "white", fontSize: "20px" }}>Cyber Cinema</span>
+                            </NavLink>
+
                         </div>
                         <Menu
                             theme="dark"
@@ -51,7 +54,7 @@ export default function AdminLayout(props) {
                                     minHeight: 360,
                                 }}
                             >
-                                <props.component {...propsRoute}/>
+                                <props.component {...propsRoute} />
                             </div>
                         </Content>
                         <Footer
