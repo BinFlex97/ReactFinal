@@ -1,3 +1,2 @@
 export const GET_MOVIE_LIST = "GET_MOVIE_LIST"
 export const GET_MOVIE_DETAIL = "GET_MOVIE_DETAIL"
-export const DELETE_MOVIE = "DELETE_MOVIE"

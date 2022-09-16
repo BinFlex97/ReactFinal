@@ -1,15 +1,14 @@
-import { Button, Space, Table, Tag } from 'antd'
+import { Button, Space, Table, Tag, Input } from 'antd'
 import React, { useEffect } from 'react'
 import {
     EditTwoTone,
     DeleteOutlined,
-    ScheduleOutlined
+    ScheduleOutlined,
 } from "@ant-design/icons";
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { DeletaMovieAction, GetMovieListAction } from '../../Redux/Action/MovieAction';
-import { movieService } from '../../Service/MovieService';
-import { history } from '../../App';
+const { Search } = Input;
 
 const columns = [
     {
@@ -96,7 +95,7 @@ export default function MovieManager() {
             status: ['cool', 'teacher'],
         },
     ];
-    let {movieList} = useSelector(state => state.MovieReducer)
+    let { movieList } = useSelector(state => state.MovieReducer)
     let dispatch = useDispatch();
     data = movieList.map((movie, index) => {
         return {
@@ -111,21 +110,26 @@ export default function MovieManager() {
                     <Button type="text"><EditTwoTone style={{ fontSize: 25 }} /></Button>
                 </NavLink>
                 <Button onClick={() => {
-                    dispatch(DeletaMovieAction(movie.maPhim))
+                    if (window.confirm("Bạn có chắc muốn xóa phim :" + movie.tenPhim + " ?"))
+                        dispatch(DeletaMovieAction(movie.maPhim))
                 }} type="text"><DeleteOutlined style={{ fontSize: 25, color: "red" }} /></Button>
-                <NavLink to={`/admin/film/showtime/${movie.maPhim}`} onClick={() => {localStorage.setItem("movie", JSON.stringify(movie))}}>
+                <NavLink to={`/admin/film/showtime/${movie.maPhim}`} onClick={() => { localStorage.setItem("movie", JSON.stringify(movie)) }}>
                     <Button type="text"><ScheduleOutlined style={{ fontSize: 25, color: "green" }} /></Button>
                 </NavLink>
             </Space>
         }
     })
+    const onSearch = (value) => {
+        dispatch(GetMovieListAction(value))
+    };
     useEffect(() => {
-        dispatch(GetMovieListAction)
-    },[])
+        dispatch(GetMovieListAction())
+    }, [])
     return (
         <div>
             <h3>Danh Sách Phim</h3>
             <button><NavLink to="/admin/film/addfilm">Thêm Phim</NavLink></button>
+            <Search size='large' placeholder="Tìm phim theo tên" onSearch={onSearch} enterButton />
             <Table columns={columns} dataSource={data} />
         </div>
     )

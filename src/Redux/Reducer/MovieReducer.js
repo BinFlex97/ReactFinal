@@ -13,8 +13,6 @@ export const MovieReducer = (state = initialState, action) => {
     case GET_MOVIE_DETAIL:
       state.movieDetail = action.movieDetail
       return { ...state }
-    case DELETE_MOVIE:
-      return{...state}
     default:
       return state
   }

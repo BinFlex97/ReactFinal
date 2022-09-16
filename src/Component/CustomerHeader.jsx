@@ -54,14 +54,14 @@ export default function CustomerHeader() {
                 <NavLink className="nav-link" to={"/home"}>Home</NavLink>
               </li>
               <li className="nav-item">
-                <a onClick={async () => {
+                <span style={{cursor:"pointer"}} onClick={async () => {
                   let user = JSON.parse(localStorage.getItem(USER_LOGIN))
                   if (user && user.maLoaiNguoiDung === "QuanTri") {
                     history.push("/admin/film")
                   } else {
                     history.push("/login")
                   }
-                }} href className="nav-link">Admin</a>
+                }} className="nav-link">Admin</span>
               </li>
             </ul>
             {renderUser()}
