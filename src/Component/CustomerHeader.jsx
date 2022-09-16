@@ -12,7 +12,9 @@ export default function CustomerHeader() {
   const renderUser = () => {
     if (localStorage.getItem(USER_LOGIN)) {
       let user = JSON.parse(localStorage.getItem(USER_LOGIN))
-      return <div className="navbar-nav nav-link text-white">
+      return <div onClick={() => {
+        history.push("/profile")
+      }} style={{cursor:"pointer"}} className="navbar-nav nav-link text-white">
         <Avatar size="large" icon={<img src="https://picsum.photos/200/300" alt="" />} />
         <span className="pl-2 pr-4">
           {user.hoTen} <br />

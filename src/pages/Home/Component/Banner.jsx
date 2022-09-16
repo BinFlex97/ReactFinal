@@ -1,5 +1,6 @@
 import { Carousel } from 'antd';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { movieService } from '../../../Service/MovieService';
 
 
@@ -13,16 +14,18 @@ const contentStyle = {
 };
 
 let RenderBanner = () => {
-  
-  let [ bannerArr, setBannerArr ] = useState([])
-  
-  movieService.GetBannerList().then((result) => {
-    setBannerArr(result.data.content);
-  }).catch((error) => {
-    console.log(error)
-  })
-  
-  return bannerArr.map((banner,index) => {
+
+  let [bannerArr, setBannerArr] = useState([])
+  useEffect(() => {
+    movieService.GetBannerList().then((result) => {
+      setBannerArr(result.data.content);
+    }).catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
+
+  return bannerArr.map((banner, index) => {
     return <div key={index}>
       <img style={contentStyle} src={banner.hinhAnh} alt="" />
     </div>

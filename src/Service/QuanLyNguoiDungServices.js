@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ACCESS_TOKEN, DOMAIN, TOKEN, } from "../ultil/setting";
 import { Service } from "./Service";
 
 export class QuanLyNguoiDungServices extends Service {
@@ -9,6 +8,8 @@ export class QuanLyNguoiDungServices extends Service {
     dangKy = (thongTinDangKy) => {
         return this.post(`/api/QuanLyNguoiDung/DangKy`, thongTinDangKy);
     };
-
+    GetTicketOrdered = () => {
+        return this.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`)
+    }
 }
 export const quanLyNguoiDungServices = new QuanLyNguoiDungServices();

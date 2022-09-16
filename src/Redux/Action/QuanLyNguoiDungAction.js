@@ -4,10 +4,6 @@ import { DANG_KY, DANG_NHAP } from "../Type/QuanLyNguoiDungTypes";
 import swal from 'sweetalert';
 
 
-
-
-
-
 export const dangNhapAction = (thongTinDangNhap) => {
     return async (dispatch) => {
         try {
