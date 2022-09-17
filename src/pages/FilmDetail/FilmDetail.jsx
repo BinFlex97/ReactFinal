@@ -14,7 +14,6 @@ export default function FilmDetail(props) {
   let { filmDetail } = useSelector(
     (rootReducer) => rootReducer.QuanLyPhimReducer
   );
-  console.log(filmDetail);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(layThongTinLichChieuAction(id));

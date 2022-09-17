@@ -18,5 +18,7 @@ export const ChairTableLayout = (props) => {
 
 
         </Fragment>;
+
+
     }} />;
 };

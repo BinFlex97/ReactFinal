@@ -25,7 +25,7 @@ function App() {
           <UserLayout exact path="/login" Component={Login} />
           <UserLayout exact path="/register" Component={Register} />
 
-          <ChairTableLayout exact path="/chairtable/:id" component={ChairTable} />
+          <ChairTableLayout exact path="/chairtable/:id" Component={ChairTable} />
 
 
         </Switch>
@@ -34,4 +34,3 @@ function App() {
   );
 }
 export default App;
-  
