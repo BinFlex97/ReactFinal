@@ -47,8 +47,8 @@ export default function BookingHistory() {
                     <br />
                     Ngày Chiếu: {moment(user.ngayDat).format("DD-MM-YYYY")}{" "}
                   </p>
-                  <p>{_.first(user.danhSachGhe).tenHeThongRap}</p>
-                  <p>{_.first(user.danhSachGhe).tenRap}: - Ghế:</p>
+                  <p>{__.first(user.danhSachGhe).tenHeThongRap}</p>
+                  <p>{__.first(user.danhSachGhe).tenRap}: - Ghế:</p>
 
                   {user.danhSachGhe?.map((ghe, index) => {
                     return (
