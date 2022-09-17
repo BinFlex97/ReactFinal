@@ -13,7 +13,6 @@ export default function ListRapDetailFilm(props) {
   };
   const { heThongRapChieu } = props;
 
-  console.log(heThongRapChieu);
   const renderHeThongRapDetail = () => {
     return heThongRapChieu?.map((rap, index) => {
       return (

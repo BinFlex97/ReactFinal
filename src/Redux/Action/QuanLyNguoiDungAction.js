@@ -1,6 +1,6 @@
 import { history } from "../../App";
 import { quanLyNguoiDungServices } from "../../Service/QuanLyNguoiDungServices";
-import { DANG_KY, DANG_NHAP } from "../Type/QuanLyNguoiDungTypes";
+import { DANG_KY, DANG_NHAP, LAY_THONG_TIN_NGUOI_DUNG } from "../Type/QuanLyNguoiDungTypes";
 import swal from 'sweetalert';
 
 
@@ -48,3 +48,21 @@ export const dangKyAction = (thongTinDangKy) => {
         }
     };
 };
+
+export const layThongTinNguoiDungAction = () => {
+    return async dispatch => {
+        try {
+            let result = await quanLyNguoiDungServices.GetTicketOrdered();
+            dispatch({
+                type: LAY_THONG_TIN_NGUOI_DUNG,
+                thongTinNguoiDung: result.data.content
+            });
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
+
+

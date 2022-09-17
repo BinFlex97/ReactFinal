@@ -1,36 +1,41 @@
 import React from "react";
-import styleChairCss from "./ChairTableCss.module.css";
+import { Tabs } from "antd";
+import BookTicketsAndPay from "./BookTicketsAndPay";
+import BookingHistory from "./BookingHistory";
+import { useDispatch, useSelector } from "react-redux";
+import Logo from "../../Component/Logo/Logo";
+import { CHANGE_TAB_ACTIVE } from "../../Redux/Type/QuanLyDatVeType";
+import { NavLink } from "react-router-dom";
 
-export default function ChairTable() {
+const { TabPane } = Tabs;
+
+export default function ChairTable(props) {
+  const { tabActive } = useSelector(
+    (rootReducer) => rootReducer.QuanLyDatVeReducers
+  );
+  const dispatch = useDispatch();
   return (
-    <div className="container">
-      <div className="row mt-5">
-        <div className="col-8">
-          <div className={`text-center ${styleChairCss.screen}`}>
-            <h4>Màn Hình</h4>
-          </div>
-        </div>
-        <div className="col-4">
-          <p style={{ fontSize: "30px" }} className="text-center text-success">
-            Giá: 0đ
-          </p>
-          <hr />
-          <h2>Tên Phim</h2>
-          <p>Địa Chỉ: tên Cụm Rạp</p>
-          <p>Ngày chiếu - giờ chiếu</p>
-          <hr />
-          <div style={{ alignItems: "center" }} className="row">
-            <div className="col-8">
-              <h2 className="text-danger">Ghế</h2>
-            </div>
-            <div className="col-4">Giá Vé: 0đ</div>
-          </div>
-          <hr />
-          <h5>UserLogin:email</h5>
-          <hr />
-          <h5>UserLogin:tài khoản</h5>
-        </div>
-      </div>
+    <div className="px-5">
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
+      <Tabs
+        defaultActiveKey="1"
+        activeKey={tabActive}
+        onChange={(key) => {
+          dispatch({
+            type: CHANGE_TAB_ACTIVE,
+            number: key,
+          });
+        }}
+      >
+        <TabPane tab="01 Kết quả & thanh toán" key="1">
+          <BookTicketsAndPay {...props} />
+        </TabPane>
+        <TabPane tab="02 Lịch Sử Đặt Vé" key="2">
+          <BookingHistory {...props} />
+        </TabPane>
+      </Tabs>
     </div>
   );
 }
