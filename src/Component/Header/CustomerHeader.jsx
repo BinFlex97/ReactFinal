@@ -14,9 +14,7 @@ export default function CustomerHeader() {
   const renderUser = () => {
     if (localStorage.getItem(USER_LOGIN)) {
       let user = JSON.parse(localStorage.getItem(USER_LOGIN))
-      return <div onClick={() => {
-        history.push("/profile")
-      }} style={{ cursor: "pointer" }} className="navbar-nav nav-link text-dark">
+      return <div style={{ cursor: "pointer" }} className="navbar-nav nav-link text-dark">
         <NavLink to="/profile">
           <Avatar size="large" icon={<img src="https://picsum.photos/200/300" alt="" />} />
           <span className="pl-2 pr-4">
