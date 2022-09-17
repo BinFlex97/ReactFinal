@@ -153,12 +153,11 @@ export default function BookTicketsAndPay(props) {
             </tfoot>
           </table>
           <hr />
-          <h5>{userLogin.email}</h5>
+          <h5>Email: {userLogin.email}</h5>
           <hr />
-          <h5>{userLogin.taiKhoan}</h5>
+          <h5>Tài Khoản: {userLogin.taiKhoan}</h5>
           <div className="mt-5">
             <button
-              type="submit"
               onClick={() => {
                 const thongTinDatVe = new ThongTinDatVe();
                 thongTinDatVe.maLichChieu = id;

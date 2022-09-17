@@ -1,9 +1,10 @@
 import { ThongTinPhongVe } from "../../_core/models/thongTinPhongVe";
-import { DAT_VE, SET_DS_GHE_DETAIL } from "../Type/QuanLyDatVeType";
+import { CHANGE_TAB, CHANGE_TAB_ACTIVE, DAT_VE, SET_DS_GHE_DETAIL } from "../Type/QuanLyDatVeType";
 
 const stateDefault = {
     thongTinPhongVe: new ThongTinPhongVe(),
-    danhSachGheDangDat: []
+    danhSachGheDangDat: [],
+    tabActive: "1",
 };
 
 export const QuanLyDatVeReducers = (state = stateDefault, action) => {
@@ -20,6 +21,14 @@ export const QuanLyDatVeReducers = (state = stateDefault, action) => {
             } else {
                 state.danhSachGheDangDat.push(action.gheDangDat);
             }
+            return { ...state };
+        }
+        case CHANGE_TAB: {
+            state.tabActive = "2";
+            return { ...state };
+        }
+        case CHANGE_TAB_ACTIVE: {
+            state.tabActive = action.number;
             return { ...state };
         }
         default: {

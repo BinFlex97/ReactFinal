@@ -6,6 +6,7 @@ import ListRapDetailFilm from "./component/ListRapDetailFilm";
 import { layThongTinLichChieuAction } from "../../Redux/Action/QuanLyHeThongRapAction.js";
 //Css
 import filmDetailCss from "./FilmDetail.module.css";
+import { history } from "../../App";
 
 const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
@@ -72,7 +73,6 @@ export default function FilmDetail(props) {
                             ? `${filmDetail.moTa.slice(0, 300)}.....`
                             : filmDetail.moTa}
                         </p>
-                        <button className="btn btn-danger">Mua Vé</button>
                       </div>
                     </div>
                   </div>

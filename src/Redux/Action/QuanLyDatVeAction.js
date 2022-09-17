@@ -1,13 +1,12 @@
 import { quanLyDatVeServices } from "../../Service/QuanLyDatVeServices";
 import { ThongTinDatVe } from "../../_core/models/thongTinDatVe";
-import { SET_DS_GHE_DETAIL } from "../Type/QuanLyDatVeType";
+import { CHANGE_TAB, SET_DS_GHE_DETAIL } from "../Type/QuanLyDatVeType";
 
 
 export const ChiTietDatGheAction = (maLichChieu) => {
     return async dispatch => {
         try {
             let result = await quanLyDatVeServices.layDanhSachPhongVe(maLichChieu);
-            console.log(result);
             dispatch({
                 type: SET_DS_GHE_DETAIL,
                 thongTinPhongVe: result.data.content
@@ -22,7 +21,14 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
     return async dispatch => {
         try {
             let result = await quanLyDatVeServices.datVe(thongTinDatVe);
-            console.log(result);
+            await swal({
+                icon: "success",
+                text: "Đặt Vé Thành Công!!"
+            });
+            dispatch({
+                type: CHANGE_TAB,
+            });
+
         } catch (error) {
             console.log(error);
         }
