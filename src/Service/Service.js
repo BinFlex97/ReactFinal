@@ -29,7 +29,7 @@ export class Service {
       data: model,
       headers: {
         "TokenCybersoft": TOKEN,
-        'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+        'Authorization':'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
       }
     })
   }

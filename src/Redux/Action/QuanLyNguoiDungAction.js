@@ -4,25 +4,19 @@ import { DANG_KY, DANG_NHAP } from "../Type/QuanLyNguoiDungTypes";
 import swal from 'sweetalert';
 
 
-
-
-
-
 export const dangNhapAction = (thongTinDangNhap) => {
-    return async dispatch => {
+    return async (dispatch) => {
         try {
-            let reusult = await quanLyNguoiDungServices.dangNhap(thongTinDangNhap);
-            console.log(reusult);
-
-            await dispatch({
+            let result = await quanLyNguoiDungServices.dangNhap(thongTinDangNhap);
+            dispatch({
                 type: DANG_NHAP,
-                thongTinDangNhap: reusult.data.content
+                thongTinDangNhap: result.data.content
             });
             await swal({
                 icon: "success",
                 text: "Đăng Nhập Thành Công!!"
             });
-            await history.goBack();
+            history.goBack();
         } catch (error) {
             swal({
                 text: "Tài khoản hoặc mật khẩu không đúng. vui lòng nhập lại",

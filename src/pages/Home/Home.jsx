@@ -6,7 +6,7 @@ import MovieSchedule from "./Component/MovieSchedule";
 const Home = (props) => {
   return (
     <div>
-      <Banner />
+      <Banner/>
       <MovieList />
       <MovieSchedule />
     </div>

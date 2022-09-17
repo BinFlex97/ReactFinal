@@ -1,4 +1,4 @@
-import { GET_MOVIE_DETAIL, GET_MOVIE_LIST } from "../Type/MovieType"
+import { DELETE_MOVIE, GET_MOVIE_DETAIL, GET_MOVIE_LIST } from "../Type/MovieType"
 
 const initialState = {
   movieList: [],

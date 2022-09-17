@@ -10,6 +10,9 @@ export class TheaterService extends Service{
     GetTheaterGroup = (id) => {
         return this.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${id}`)
     }
+    AddShowtimeSchedule = (data) => {
+        return this.post(`/api/QuanLyDatVe/TaoLichChieu`,data)
+    }
 }
 
 export const theaterService = new TheaterService();

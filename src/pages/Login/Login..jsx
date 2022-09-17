@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { dangNhapAction } from "../../Redux/Action/QuanLyNguoiDungAction";
 import * as Yup from "yup";
 import { history } from "../../App";
+import Logo from "../../Component/Logo/Logo";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -16,15 +17,9 @@ export default function Login() {
     validationSchema: Yup.object({
       //Các hàm validation của từng trường dữ liệu
       taiKhoan: Yup.string()
-        .required("Tài khoản không được để trống")
-        .min(6, "Tối thiếu 6 ký tự")
-        .max(10, "Tối đa 10 ký tự"),
+        .required("Tài khoản không được để trống"),
       //Ít nhất ký chữ, in hoa, số...
       matKhau: Yup.string()
-        .matches(
-          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,8}$/,
-          "Mật khẩu chưa đúng định dạng"
-        )
         .required("Mật khẩu không được để trống"),
     }),
     onSubmit: (values) => {
@@ -48,10 +43,7 @@ export default function Login() {
       <div>
         <div className="text-center">
           <NavLink to="/">
-            <img
-              src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
-              alt="cyber"
-            />
+            <Logo></Logo>
           </NavLink>
           <p className="font-weight-bold my-4">
             Đăng nhập để được nhiều ưu đãi, mua vé và bảo mật thông tin!

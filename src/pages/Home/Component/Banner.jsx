@@ -21,7 +21,7 @@ let RenderBanner = () => {
     }).catch((error) => {
       console.log(error)
     })
-  })
+  }, [])
 
 
   return bannerArr.map((banner, index) => {
@@ -32,7 +32,7 @@ let RenderBanner = () => {
 }
 export default function Banner() {
   return (
-    <div>
+    <div className='section'>
       <h1>Đặt Vé Xem Phim</h1>
       <Carousel autoplay>
         {RenderBanner()}

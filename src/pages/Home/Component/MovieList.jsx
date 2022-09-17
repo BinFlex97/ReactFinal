@@ -61,8 +61,8 @@ export default function MovieList(props) {
     });
   };
   return (
-    <div>
-      <h4>Danh Sách Phim</h4>
+    <div className='section'>
+      <h2>Danh Sách Phim</h2>
       <Swiper spaceBetween={50} slidesPerView={6} className="text-center ">
         {RenderCard()}
       </Swiper>

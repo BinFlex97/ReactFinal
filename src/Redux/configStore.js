@@ -7,6 +7,7 @@ import { QuanLyNguoiDungReducer } from "./Reducer/QuanLyNguoiDungReducer";
 const rootReducer = combineReducers({
     QuanLyPhimReducer,
     MovieReducer,
+    QuanLyNguoiDungReducer
     
 });
 
