@@ -6,6 +6,7 @@ import { history } from '../App';
 import { USER_LOGIN } from '../ultil/setting';
 import Buttoncss from '../Component/Button/Buttoncss';
 import { Children } from 'react';
+import MainFooter from '../Component/Footer/MainFooter';
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -107,7 +108,7 @@ export default function AdminLayout(props) {
                                 textAlign: 'center',
                             }}
                         >
-                            Ant Design ©2018 Created by Ant UED
+                            <MainFooter/>
                         </Footer>
                     </Layout>
                 </Layout>

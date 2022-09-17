@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
 import { Breadcrumb, Layout } from "antd";
 import CustomerHeader from "../Component/Header/CustomerHeader";
+import MainFooter from "../Component/Footer/MainFooter";
 const { Content, Footer } = Layout;
 
 const CustomerLayout = (props) => {
@@ -21,8 +22,8 @@ const CustomerLayout = (props) => {
                   <props.component {...propsRoute} />
                 </div>
               </Content>
-              <Footer style={{ textAlign: "center"}}>
-                Ant Design ©2018 Created by Ant UED
+              <Footer style={{borderRadius:"30px 30px 0 0"}}>
+                <MainFooter/>
               </Footer>
             </Layout>
           </Fragment>
