@@ -1,9 +1,13 @@
 import 'antd/dist/antd.min.css';
 import './App.css';
+import "./Component/Button/Buttoncss.css"
+import "./Assets/css/iindex.css";
+import "./Component/Logo/Logo.css"
+
 import CustomerLayout from './layout/CustomerLayout';
 import { Router, Switch } from 'react-router-dom';
 import { createBrowserHistory } from "history";
-import "./Assets/css/iindex.css";
+
 import Home from './pages/Home/Home';
 import FilmDetail from "./pages/FilmDetail/FilmDetail";
 import AdminLayout from './layout/AdminLayout';

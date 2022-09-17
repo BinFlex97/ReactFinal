@@ -8,6 +8,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { DeletaMovieAction, GetMovieListAction } from '../../Redux/Action/MovieAction';
+import Buttoncss from '../../Component/Button/Buttoncss';
 const { Search } = Input;
 
 const columns = [
@@ -128,8 +129,8 @@ export default function MovieManager() {
     return (
         <div>
             <h3>Danh Sách Phim</h3>
-            <button><NavLink to="/admin/film/addfilm">Thêm Phim</NavLink></button>
-            <Search size='large' placeholder="Tìm phim theo tên" onSearch={onSearch} enterButton />
+            <NavLink to="/admin/film/addfilm"><Button type='primary' >Thêm Phim</Button></NavLink>
+            <Search className='py-3' size='large' placeholder="Tìm phim theo tên" onSearch={onSearch} enterButton />
             <Table columns={columns} dataSource={data} />
         </div>
     )

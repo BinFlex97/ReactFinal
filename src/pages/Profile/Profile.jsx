@@ -52,8 +52,8 @@ export default function Profile() {
       <h1>Thông tin người dùng :</h1>
       <Row gutter={[16, 24]}>
         <Col span={12}>
-          <Divider style={{fontSize:30}} orientation="middle">Thông Tin Cá Nhân</Divider>
           <Card>
+          <Divider style={{fontSize:30}} orientation="middle">Thông Tin Cá Nhân</Divider>
             <Row className='pt-5' style={{ paddingLeft: 100 }} gutter={[0, 30]}>
               <Col span={12}><h5>Tài Khoản :</h5></Col>
               <Col span={12}>{userLogin.taiKhoan}</Col>
@@ -72,15 +72,13 @@ export default function Profile() {
 
         </Col>
         <Col span={12}>
-          <Divider style={{fontSize:30}} orientation="middle">Lịch Sử đặt ghế</Divider>
           <Card>
+          <Divider style={{fontSize:30}} orientation="middle">Lịch Sử đặt ghế</Divider>
             <List
               itemLayout="vertical"
               size="large"
               pagination={{
-                onChange: (page) => {
-                },
-                pageSize: 3,
+                pageSize: 3
               }}
               dataSource={data}
               renderItem={(item) => (

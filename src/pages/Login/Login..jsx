@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { dangNhapAction } from "../../Redux/Action/QuanLyNguoiDungAction";
 import * as Yup from "yup";
 import { history } from "../../App";
+import Logo from "../../Component/Logo/Logo";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -42,10 +43,7 @@ export default function Login() {
       <div>
         <div className="text-center">
           <NavLink to="/">
-            <img
-              src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
-              alt="cyber"
-            />
+            <Logo></Logo>
           </NavLink>
           <p className="font-weight-bold my-4">
             Đăng nhập để được nhiều ưu đãi, mua vé và bảo mật thông tin!

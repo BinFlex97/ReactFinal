@@ -1,6 +1,5 @@
 import { Carousel } from 'antd';
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
 import { movieService } from '../../../Service/MovieService';
 
 
@@ -33,7 +32,7 @@ let RenderBanner = () => {
 }
 export default function Banner() {
   return (
-    <div>
+    <div className='section'>
       <h1>Đặt Vé Xem Phim</h1>
       <Carousel autoplay>
         {RenderBanner()}

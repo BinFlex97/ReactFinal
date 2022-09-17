@@ -35,3 +35,17 @@
 .site-layout-background {
   background: #fff;
 }
+
+.customerLayout {
+  background-image: url(../img/195716-passeio-das-aguas-cinema.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} 
+.section{
+  margin: 30px 10px;
+}
+.navbar{
+  height: 100px;
+}

@@ -8,6 +8,7 @@ import {
 } from "../../Redux/Action/QuanLyNguoiDungAction";
 import * as Yup from "yup";
 import { GROUP_ID } from "../../ultil/setting";
+import Logo from "../../Component/Logo/Logo";
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -62,10 +63,7 @@ export default function Register() {
       <div>
         <div className="text-center">
           <NavLink to="/">
-            <img
-              src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
-              alt="cyber"
-            />
+            <Logo></Logo>
           </NavLink>
           <p className="font-weight-bold my-4">
             Đăng nhập để được nhiều ưu đãi, mua vé và bảo mật thông tin!
