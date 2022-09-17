@@ -1,7 +1,7 @@
 import { quanLyDatVeServices } from "../../Service/QuanLyDatVeServices";
 import { ThongTinDatVe } from "../../_core/models/thongTinDatVe";
 import { CHANGE_TAB, SET_DS_GHE_DETAIL } from "../Type/QuanLyDatVeType";
-
+import swal from "sweetalert"
 
 export const ChiTietDatGheAction = (maLichChieu) => {
     return async dispatch => {
